@@ -54,6 +54,10 @@
     or (ansible_distribution == 'Amazon' and ansible_distribution_major_version | int >= 2023)
   ansible.builtin.include_tasks: fedora/uninstall.yml
 
+- name: Uninstall | Alibaba Cloud Linux
+  when: ansible_distribution == 'Alibaba' and ansible_distribution_major_version | int >= 3
+  ansible.builtin.include_tasks: alibaba/uninstall.yml
+
 - name: Uninstall | Arch
   when: ansible_distribution == 'Archlinux'
   ansible.builtin.include_tasks: arch/uninstall.yml

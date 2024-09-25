@@ -54,6 +54,7 @@ tailscale_yum_repos:
   OracleLinux: https://pkgs.tailscale.com/{{ release_stability | lower }}/centos/{{ ansible_distribution_major_version }}/tailscale.repo
   Rocky: https://pkgs.tailscale.com/{{ release_stability | lower }}/centos/{{ ansible_distribution_major_version }}/tailscale.repo
   AlmaLinux: https://pkgs.tailscale.com/{{ release_stability | lower }}/centos/{{ ansible_distribution_major_version }}/tailscale.repo
+  Alibaba: https://pkgs.tailscale.com/{{ release_stability | lower }}/centos/8/tailscale.repo
 
 tailscale_dnf_dependencies:
   - python-dnf
