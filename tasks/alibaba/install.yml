@@ -1,0 +1,22 @@
+---
+- name: Alibaba Cloud Linux 3 | DNF Dependencies
+  become: true
+  ansible.builtin.dnf:
+    name: "{{ tailscale_yum_dependencies }}"
+    state: present
+    use_backend: dnf4
+
+- name: Alibaba Cloud Linux 3 | Add Tailscale Repo
+  become: true
+  ansible.builtin.command: dnf config-manager --add-repo {{ tailscale_yum_repos[ansible_distribution] }}
+  args:
+    creates: /etc/yum.repos.d/tailscale.repo
+  register: add_tailscale_repo
+
+- name: Alibaba Cloud Linux 3 | Install Tailscale
+  become: true
+  ansible.builtin.dnf:
+    name: "{{ tailscale_package }}"
+    update_cache: '{{ add_tailscale_repo.changed | default(false) | bool }}'
+    state: '{{ state }}'
+    use_backend: dnf4
