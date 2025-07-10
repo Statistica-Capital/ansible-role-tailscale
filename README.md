@@ -3,7 +3,6 @@
 [![Ansible Role](https://img.shields.io/ansible/role/d/artis3n/tailscale)](https://galaxy.ansible.com/ui/standalone/roles/artis3n/tailscale/)
 [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/artis3n/ansible-role-tailscale?include_prereleases)](https://github.com/artis3n/ansible-role-tailscale/releases)
 [![Molecule Tests](https://github.com/artis3n/ansible-role-tailscale/actions/workflows/pull_request_target.yml/badge.svg)](https://github.com/artis3n/ansible-role-tailscale/actions/workflows/pull_request_target.yml)
-[![Codespaces Prebuilds](https://github.com/artis3n/ansible-role-tailscale/actions/workflows/codespaces/create_codespaces_prebuilds/badge.svg)](https://github.com/artis3n/ansible-role-tailscale/actions/workflows/codespaces/create_codespaces_prebuilds)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6312/badge)](https://bestpractices.coreinfrastructure.org/projects/6312)
 ![GitHub last commit](https://img.shields.io/github/last-commit/artis3n/ansible-role-tailscale)
 ![GitHub](https://img.shields.io/github/license/artis3n/ansible-role-tailscale)
@@ -13,6 +12,14 @@
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/artis3n/ansible-role-tailscale?quickstart=1)
 
 This role installs and configures [Tailscale][] on a Linux target.
+
+> [!IMPORTANT]
+> **This standalone role has been migrated into a collection (<https://github.com/artis3n/ansible-collection-tailscale>).**
+>
+> This role will continue to function but future development work will focus on the collection.
+> Please try out the collection and provide feedback on the new repo.
+>
+> `ansible-galaxy collection install artis3n.tailscale`
 
 Supported operating systems:
 - Debian / Ubuntu
@@ -120,9 +127,9 @@ and the generated OAuth access token expires after 1 hour.
 
 For more information, see Tailscale's [OAuth clients](https://tailscale.com/kb/1215/oauth-clients) page, especially [Generating long-lived auth keys](https://tailscale.com/kb/1215/oauth-clients#generating-long-lived-auth-keys).
 
-If an OAuth key is used, be sure to grant the `write` Devices scope to the OAuth client.
+If an OAuth key is used, be sure to grant the `write` Auth Keys scope to the OAuth client.
 
-<img src="https://raw.githubusercontent.com/artis3n/ansible-role-tailscale/main/docs/images/oauth_scopes.png" alt="OAuth scopes" width="40%" height="40%">
+<img src="https://github.com/user-attachments/assets/f1982344-d9a1-4c55-9c93-ed0a0cc4847c" alt="OAuth scopes" width="40%" height="40%">
 
 This value should be treated as a sensitive secret.
 
